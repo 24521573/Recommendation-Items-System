@@ -1,7 +1,6 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 import polars as pl
-from recommendation import get_final_recommendations
 
 app = FastAPI(title="Product Recommendation API")
 
@@ -14,17 +13,14 @@ app.add_middleware(
 )
 
 ITEMS_PATH = "data/items.parquet"
-TRANS_PATH = "data/transactions-2025-12.parquet"
+RULES_PATH = "data/rules.parquet"
 
 # ==========================================
 # BƯỚC 1: ĐỌC DỮ LIỆU SẢN PHẨM 
 # ==========================================
 df_items = pl.read_parquet(ITEMS_PATH)
-
-# Ép kiểu item_id sang String để tránh lỗi khi tìm kiếm
 df_items = df_items.with_columns(pl.col("item_id").cast(pl.String))
 
-# THUẬT TOÁN "BỌC THÉP" ÉP KIỂU SALE_STATUS
 if "sale_status" not in df_items.columns:
     df_items = df_items.with_columns(pl.lit(0).alias("sale_status"))
 else:
@@ -63,24 +59,21 @@ df_items = df_items.with_columns(
 cols_to_keep = ["item_id", "category", "category_l1", "brand", "manufacturer", "description", "price", "size", "sold_count", "sale_status"]
 df_items_clean = df_items.select(cols_to_keep)
 
-# TẠO LƯỚI CỨU SINH: Top 5 Best Sellers toàn sàn (Chắc chắn phải CÒN HÀNG)
 fallback_candidates = df_items_clean.filter(pl.col("sale_status") == 1) \
                                     .sort("sold_count", descending=True) \
                                     .head(5) \
                                     .with_columns(pl.lit(9.9).alias("final_score"))
 
 # ==========================================
-# BƯỚC 2: KHỞI ĐỘNG AI ENGINE 
+# BƯỚC 2: CHỈ ĐỌC KẾT QUẢ ĐÃ TÍNH SẴN (SIÊU NHẸ RAM)
 # ==========================================
-print("🧠 Đang nạp AI Recommendation Engine...")
-df_rules = get_final_recommendations(TRANS_PATH, ITEMS_PATH)
-
-# Ép kiểu an toàn tránh lỗi Type Mismatch với Web
-df_rules = df_rules.with_columns(
-    pl.col("item_A").cast(pl.String),
-    pl.col("item_B").cast(pl.String)
-)
-print("✅ Nạp AI thành công! Server đã sẵn sàng.")
+print("⚡ Đang nạp phao thi AI...")
+try:
+    df_rules = pl.read_parquet(RULES_PATH)
+    print("✅ Nạp AI thành công! Server đã sẵn sàng.")
+except Exception as e:
+    print("⚠️ Không tìm thấy file rules.parquet!")
+    df_rules = pl.DataFrame({"item_A": [], "item_B": [], "final_score": []})
 
 @app.get("/products")
 def get_products():
@@ -90,14 +83,12 @@ def get_products():
 def get_recommendations_for_item(item_id: str):
     recs = df_rules.filter(pl.col("item_A") == item_id).head(5)
     
-    # CHIÊU BÍ MẬT: KÍCH HOẠT LƯỚI CỨU SINH NẾU AI BÓ TAY
     if recs.height == 0:
         return {"recommendations": fallback_candidates.to_dicts()}
     
     rec_list = recs.select(["item_B", "final_score"]).rename({"item_B": "item_id"})
     rec_list = rec_list.join(df_items_clean, on="item_id", how="inner").to_dicts()
     
-    # Chống móm lần 2 (nếu join xong bị mất dữ liệu)
     if len(rec_list) == 0:
         return {"recommendations": fallback_candidates.to_dicts()}
         
