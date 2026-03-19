@@ -1,6 +1,8 @@
 # TỔNG HỢP PHƯƠNG PHÁP & KỸ THUẬT — HỆ THỐNG GỢI Ý SẢN PHẨM
 
 🚀 **Trải nghiệm ngay (Live Demo):** [https://recommendation-items-system.vercel.app/](https://recommendation-items-system.vercel.app/)
+
+
 ⚡ **API Backend:** [https://recommendation-items-system.onrender.com/products](https://recommendation-items-system.onrender.com/products)
 
 > **💡 Lưu ý khi test:** Hệ thống Backend được triển khai trên nền tảng miễn phí (Render Free Tier). Nếu web mất khoảng 30-50 giây để tải sản phẩm ở lần truy cập đầu tiên, xin vui lòng đợi một chút để server "thức dậy". Sau đó hệ thống AI sẽ gợi ý với tốc độ cực nhanh!
