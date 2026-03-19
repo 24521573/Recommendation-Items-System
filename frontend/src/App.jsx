@@ -16,7 +16,7 @@ function App() {
   const ITEMS_PER_PAGE = 9;
 
   useEffect(() => {
-    axios.get('http://127.0.0.1:8000/products')
+    axios.get('https://recommendation-items-system.onrender.com/products')
       .then((res) => setProducts(res.data.products))
       .catch((err) => console.error(err));
   }, []);
@@ -27,7 +27,7 @@ function App() {
     setLoadingRecs(true);
     window.scrollTo({ top: 0, behavior: 'smooth' });
     
-    axios.get(`http://127.0.0.1:8000/recommend/item/${product.item_id}`)
+    axios.get(`https://recommendation-items-system.onrender.com/recommend/item/${product.item_id}`)
       .then((res) => {
         setRecommendations(res.data.recommendations);
         setLoadingRecs(false);
