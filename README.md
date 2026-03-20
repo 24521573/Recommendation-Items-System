@@ -1,5 +1,7 @@
 
-![tải xuống](https://github.com/user-attachments/assets/89880beb-6f69-41a5-a2ae-8b8393b43cd8)
+<p align="center">
+  <img src="https://www.uit.edu.vn/strapi/uploads/LOGO_VNA_c054066f11_7d72ba6441.png" alt="Trường Đại học Công nghệ Thông tin" width="450" />
+</p>
 
 <h1 align="center">CS116 - LẬP TRÌNH PYTHON CHO MÁY HỌC</h1>
 
