@@ -167,16 +167,16 @@ r'\bSIZE\s+([MLS])\b'
 
 ```text
 RECOMMENDATION-SYSTEM/
-├── backend/               # Server API & Xử lý AI (FastAPI, Polars)
-│   ├── data/              # Dữ liệu gốc và kết quả AI (.parquet)
+├── backend/               
+│   ├── data/              # Dữ liệu gốc (.parquet)
 │   ├── main.py            # Khởi chạy API Server
-│   ├── precompute.py      # Chạy trước AI để tối ưu RAM
-│   ├── recommendation.py  # Thuật toán AI cốt lõi
+│   ├── precompute.py      # Tối ưu RAM
+│   ├── recommendation.py  # Thuật toán chính
 │   └── requirements.txt   # Thư viện Python
 │
-├── frontend/              # Giao diện Web (ReactJS, TailwindCSS)
-│   ├── public/            # Tài nguyên tĩnh (icon, logo)
-│   ├── src/               # Source code chính
+├── frontend/              
+│   ├── public/            
+│   ├── src/               
 │   │   ├── App.jsx        # Giao diện chính & Gọi API
 │   │   ├── index.css      # CSS toàn cục
 │   │   └── main.jsx       # Điểm khởi chạy React
@@ -184,5 +184,5 @@ RECOMMENDATION-SYSTEM/
 │   ├── package.json       # Thư viện & cấu hình Node.js
 │   └── tailwind.config.js # Cấu hình giao diện Tailwind
 │
-├── .gitignore             # Ẩn các file/thư mục nặng (node_modules, venv...)
+├── .gitignore             
 └── README.md              # Tài liệu dự án
