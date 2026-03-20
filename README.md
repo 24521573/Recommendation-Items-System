@@ -1,6 +1,6 @@
 
 <p align="center">
-  <img src="https://www.uit.edu.vn/strapi/uploads/LOGO_VNA_c054066f11_7d72ba6441.png" alt="Trường Đại học Công nghệ Thông tin" width="600" />
+  <img src="https://www.uit.edu.vn/strapi/uploads/LOGO_VNA_c054066f11_7d72ba6441.png" alt="Trường Đại học Công nghệ Thông tin" width="800" />
 </p>
 
 <h1 align="center">CS116 - LẬP TRÌNH PYTHON CHO MÁY HỌC</h1>
