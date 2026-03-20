@@ -1,4 +1,5 @@
-<img width="1024" height="108" alt="LOGO_VNA_c054066f11_7d72ba6441" src="https://github.com/user-attachments/assets/4843cbcb-a1e2-4ec4-bf32-3e3ddcb079a2" />
+
+![tải xuống](https://github.com/user-attachments/assets/89880beb-6f69-41a5-a2ae-8b8393b43cd8)
 
 <h1 align="center">CS116 - LẬP TRÌNH PYTHON CHO MÁY HỌC</h1>
 
