@@ -164,7 +164,6 @@ r'\bSIZE\s+([MLS])\b'
 
 # III. CẤU TRÚC DỰ ÁN
 
-### III. CẤU TRÚC DỰ ÁN
 
 ```text
 RECOMMENDATION-SYSTEM/
