@@ -1,6 +1,6 @@
 <img width="1024" height="108" alt="LOGO_VNA_c054066f11_7d72ba6441" src="https://github.com/user-attachments/assets/4843cbcb-a1e2-4ec4-bf32-3e3ddcb079a2" />
 
-# CS116 - LẬP TRÌNH PYTHON CHO MÁY HỌC
+<h1 align="center">CS116 - LẬP TRÌNH PYTHON CHO MÁY HỌC</h1>
 
 # RECOMMENDATION ITEMS SYSTEM
 
@@ -164,32 +164,26 @@ r'\bSIZE\s+([MLS])\b'
 
 # III. CẤU TRÚC DỰ ÁN
 
+### III. CẤU TRÚC DỰ ÁN
+
 ```text
 RECOMMENDATION-SYSTEM/
-├── .vscode/
-│   └── settings.json
-├── backend/
-│   ├── __pycache__/
-│   ├── data/
-│   ├── venv/
-│   ├── eda.py
-│   ├── main.py
-│   └── recommendation.py
-├── frontend/
-│   ├── node_modules/
-│   ├── public/
-│   ├── src/
-│   │   ├── assets/
-│   │   ├── App.css
-│   │   ├── App.jsx
-│   │   ├── index.css
-│   │   └── main.jsx
-│   ├── .gitignore
-│   ├── eslint.config.js
-│   ├── index.html
-│   ├── package-lock.json
-│   ├── package.json
-│   ├── postcss.config.js
-│   └── tailwind.config.js
-└── KY THUAT XU LY.md
-```
+├── backend/               # Server API & Xử lý AI (FastAPI, Polars)
+│   ├── data/              # Dữ liệu gốc và kết quả AI (.parquet)
+│   ├── main.py            # Khởi chạy API Server
+│   ├── precompute.py      # Chạy trước AI để tối ưu RAM
+│   ├── recommendation.py  # Thuật toán AI cốt lõi
+│   └── requirements.txt   # Thư viện Python
+│
+├── frontend/              # Giao diện Web (ReactJS, TailwindCSS)
+│   ├── public/            # Tài nguyên tĩnh (icon, logo)
+│   ├── src/               # Source code chính
+│   │   ├── App.jsx        # Giao diện chính & Gọi API
+│   │   ├── index.css      # CSS toàn cục
+│   │   └── main.jsx       # Điểm khởi chạy React
+│   ├── index.html         # File HTML gốc
+│   ├── package.json       # Thư viện & cấu hình Node.js
+│   └── tailwind.config.js # Cấu hình giao diện Tailwind
+│
+├── .gitignore             # Ẩn các file/thư mục nặng (node_modules, venv...)
+└── README.md              # Tài liệu dự án
