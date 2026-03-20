@@ -1,4 +1,9 @@
-# TỔNG HỢP PHƯƠNG PHÁP & KỸ THUẬT — HỆ THỐNG GỢI Ý SẢN PHẨM
+
+<img width="1024" height="108" alt="LOGO_VNA_c054066f11_7d72ba6441" src="https://github.com/user-attachments/assets/4843cbcb-a1e2-4ec4-bf32-3e3ddcb079a2" />
+
+# CS116 - LẬP TRÌNH PYTHON CHO MÁY HỌC
+
+# RECOMMENDATION ITEMS SYSTEM
 
 🚀 **Trải nghiệm ngay (Live Demo):** [https://recommendation-items-system.vercel.app/](https://recommendation-items-system.vercel.app/)
 
@@ -10,8 +15,15 @@
 
 ---
 
+# I. GIỚI THIỆU MÔN HỌC 
 
+| **Môn học** | Lập trình Python cho Máy học |
+| **Mã lớp** | CS116.Q21 |
+| **Giảng viên** | TS. Nguyễn Vinh Tiệp |
+| **Sinh viên** | Bùi Trọng Tấn |
+| **MSSV** | 24521573 |
 
+# II. PHƯƠNG PHÁP PHÂN TÍCH
 ## 1. FREQUENTLY BOUGHT TOGETHER (Co-occurrence Analysis)
 
 
@@ -289,3 +301,32 @@ r'\bSIZE\s+([MLS])\b'
 | `SIZE_ORDER` | NB→XXXL | Thứ tự size cho logic upsale |
 
 | `UPSALE_CATEGORY` | "Tã" | Category áp dụng upsale |
+
+# III. CẤU TRÚC DỰ ÁN
+RECOMMENDATION-SYSTEM/
+├── .vscode/
+│   └── settings.json
+├── backend/
+│   ├── __pycache__/
+│   ├── data/
+│   ├── venv/
+│   ├── eda.py
+│   ├── main.py
+│   └── recommendation.py
+├── frontend/
+│   ├── node_modules/
+│   ├── public/
+│   ├── src/
+│   │   ├── assets/
+│   │   ├── App.css
+│   │   ├── App.jsx
+│   │   ├── index.css
+│   │   └── main.jsx
+│   ├── .gitignore
+│   ├── eslint.config.js
+│   ├── index.html
+│   ├── package-lock.json
+│   ├── package.json
+│   ├── postcss.config.js
+│   └── tailwind.config.js
+└── KY THUAT XU LY.md
